@@ -1,0 +1,15 @@
+overwrite: true
+generates:
+  ./apps/app-main/src/libs/types/generated/base-types.ts:
+    schema: ./apps/app-main/src/modules/**/*.graphql
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      useIndexSignature: true
+      federation: true
+      wrapFieldDefinitions: true
+      contextType: ../index#AppMainContext
+      scalars:
+        DateTime: Date
+        EmailAddress: string
