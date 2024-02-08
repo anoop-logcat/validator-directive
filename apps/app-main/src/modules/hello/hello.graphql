@@ -1,3 +1,7 @@
+input HelloInput {
+  displayName: String!
+}
+
 extend type Query {
-  appMainHello: String!
+  appMainHello(data: HelloInput): String! @validator(where: "data", input: "HelloInput")
 }

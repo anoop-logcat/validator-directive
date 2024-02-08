@@ -26,9 +26,18 @@ export type CachePurgeInput = {
   types: Array<Scalars['String']['input']>;
 };
 
+export type HelloInput = {
+  displayName: Scalars['String']['input'];
+};
+
 export type Query = {
   __typename?: 'Query';
   appMainHello: FieldWrapper<Scalars['String']['output']>;
+};
+
+
+export type QueryAppMainHelloArgs = {
+  data?: InputMaybe<HelloInput>;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -107,6 +116,7 @@ export type ResolversTypes = ResolversObject<{
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']['output']>;
   EmailAddress: ResolverTypeWrapper<Scalars['EmailAddress']['output']>;
+  HelloInput: HelloInput;
   JSON: ResolverTypeWrapper<Scalars['JSON']['output']>;
   Query: ResolverTypeWrapper<{}>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
@@ -119,6 +129,7 @@ export type ResolversParentTypes = ResolversObject<{
   String: Scalars['String']['output'];
   DateTime: Scalars['DateTime']['output'];
   EmailAddress: Scalars['EmailAddress']['output'];
+  HelloInput: HelloInput;
   JSON: Scalars['JSON']['output'];
   Query: {};
   Int: Scalars['Int']['output'];
@@ -143,6 +154,13 @@ export type ServiceAdminDirectiveArgs = { };
 
 export type ServiceAdminDirectiveResolver<Result, Parent, ContextType = AppMainContext, Args = ServiceAdminDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
+export type ValidatorDirectiveArgs = {
+  input: Scalars['String']['input'];
+  where: Scalars['String']['input'];
+};
+
+export type ValidatorDirectiveResolver<Result, Parent, ContextType = AppMainContext, Args = ValidatorDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
+
 export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
   name: 'DateTime';
 }
@@ -156,7 +174,7 @@ export interface JsonScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes
 }
 
 export type QueryResolvers<ContextType = AppMainContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  appMainHello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  appMainHello?: Resolver<ResolversTypes['String'], ParentType, ContextType, Partial<QueryAppMainHelloArgs>>;
 }>;
 
 export type Resolvers<ContextType = AppMainContext> = ResolversObject<{
@@ -170,4 +188,5 @@ export type DirectiveResolvers<ContextType = AppMainContext> = ResolversObject<{
   cachePurge?: CachePurgeDirectiveResolver<any, any, ContextType>;
   cacheSet?: CacheSetDirectiveResolver<any, any, ContextType>;
   serviceAdmin?: ServiceAdminDirectiveResolver<any, any, ContextType>;
+  validator?: ValidatorDirectiveResolver<any, any, ContextType>;
 }>;
