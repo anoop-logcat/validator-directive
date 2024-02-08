@@ -1,5 +1,5 @@
 {
-  "npmScope": "directive-playground",
+  "npmScope": "validator-directive",
   "affected": {
     "defaultBase": "main"
   },

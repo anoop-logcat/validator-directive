@@ -1,8 +1,8 @@
-# directive-playground
+# validator-directive
 
 ### A npm workspace for try out directives before making package.
 
-- Repository 
+- Repository
 
 ## Technologies used
 
@@ -24,15 +24,15 @@ Boilerplate requires [Node.js](https://nodejs.org/) v16+ to run.
 Install the dependencies and devDependencies and start the workspace applications.
 
 ```sh
-git clone 
-cd directive-playground
+git clone
+cd validator-directive
 npm install
 npm run serve
 ```
 
 ## VS Code Extensions
 
-The directive-playground boilerplate is using the below vscode extensions.
+The validator-directive boilerplate is using the below vscode extensions.
 
 - Prettier (https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - ES Lint (https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)

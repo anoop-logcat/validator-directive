@@ -2,7 +2,7 @@ COMPOSE_FILE_local=./deployments/local/docker-compose-local.yaml
 
 BASE_PATH=$(PWD)
 
-NAME_local=directive-playground-local
+NAME_local=validator-directive-local
 MONGO_CLUSTER_URL=mongodb://localhost:27019
 
 all:
@@ -62,5 +62,5 @@ ifneq ($(stage),local)
 	@$(MAKE) --no-print-directory move-env stage=$(stage)
 else
 	@echo "Creating a S3 bucket"
-	@aws --endpoint=$(AWS_ENDPOINT) s3api create-bucket --bucket directive-playground-local-bucket
+	@aws --endpoint=$(AWS_ENDPOINT) s3api create-bucket --bucket validator-directive-local-bucket
 endif

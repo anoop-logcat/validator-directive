@@ -1,5 +1,5 @@
 {
-  "name": "directive-playground",
+  "name": "validator-directive",
   "version": "1.0.0",
   "description": "A npm workspace for try out directives before making package",
   "author": "Anoop Benzier (HubSpire)",

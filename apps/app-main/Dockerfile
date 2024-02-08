@@ -1,8 +1,8 @@
 FROM node:20
 
 # create & set working directory
-RUN mkdir -p /home/node/directive-playground
-WORKDIR /home/node/directive-playground
+RUN mkdir -p /home/node/validator-directive
+WORKDIR /home/node/validator-directive
 
 # copy global package.json files
 COPY --chown=node package*.json ./
